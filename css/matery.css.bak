@@ -1,12 +1,4 @@
 /*全局基础样式*/
-/*防止播放器背景色与文章列表色相同*/
-.aplayer-list-title {
-color: #666;
-}
-
-.aplayer-title {
-    color: #009688
-}
 /*小屏幕下(手机类)的样式*/
 @media only screen and (max-width: 601px) {
     .container {
