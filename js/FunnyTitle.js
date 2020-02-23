@@ -8,6 +8,7 @@ $(function(){
 		"如果你想和我交个朋友!一定要联系我哦,谢谢^^!! \n 我的邮箱: it_magicjson@163.com ",
 		"color: #202124; background: #ccffff; padding:6px;")
 		
+		
 		<!--浏览器标题-->
 	 var OriginTitle = document.title;
 	 var titleTime;
