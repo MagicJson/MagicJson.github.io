@@ -1,5 +1,4 @@
-$(function(){
-	/*  添加信息到控制面板*/
+/*  添加信息到控制面板*/
 	console.log("\n %c MagicJson %c https://magicjson.cc \n",
 		"color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
 	console.log(
@@ -26,5 +25,4 @@ $(function(){
 	         }, 2000);
 	     }
 	 });
-	
-})
+
