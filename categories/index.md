@@ -1,6 +1,0 @@
----
-title: categories
-date: 2020-02-22 11:08:42
-type: "categories"
-layout: "categories"
----
