@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="contact, Java 前端 深度学习 计算机视觉">
-    <meta name="description" content="contact | MagicJson&#39;s Blog">
+    <meta name="keywords" content="画像系统常见问题及开发注意事项, Java 前端 深度学习 计算机视觉">
+    <meta name="description" content="画像系统常见问题及开发注意事项">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>contact | MagicJson&#39;s Blog</title>
+    <title>画像系统常见问题及开发注意事项 | MagicJson&#39;s Blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/libs/awesome/css/all.css">
@@ -303,50 +303,314 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                站在巨人的肩膀上
-                
-            </div>
+    
+<script src="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<script>
+    (function() {
+        let pwd = '01bd6d9d9f70b6b75b27f394b21e7893385ba0456f5c449f49496d71a9307fbb';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
-            <div class="description center-align">
-                
-                <span id="jinrishici-sentence">正在加载今日诗词......</span>
-                
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/medias/featureimages/19.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">画像系统常见问题及开发注意事项</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/medias/banner/' + new Date().getDay() + '.jpg)');
-</script>
 
 
-    </div>
-</div>
+<main class="post-container content">
 
-<main class="content">
-    <div id="contact" class="container chip-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="tag-title center-align">
-                    <i class="fas fa-comments"></i>&nbsp;&nbsp;留言板
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%BF%90%E7%BB%B4%E6%8A%80%E6%9C%AF/">
+                                <span class="chip bg-color">运维技术</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%94%BB%E5%83%8F%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">画像系统</span>
+                            </a>
+                        
+                    </div>
+                    
                 </div>
-                <h2 id="畅所欲言"><a href="#畅所欲言" class="headerlink" title="畅所欲言"></a>畅所欲言</h2><hr>
-<p>在这里可以写下您真挚的留言或者交换友链，一起探讨学习！</p>
-<h2 id="鄙人的友链"><a href="#鄙人的友链" class="headerlink" title="鄙人的友链"></a>鄙人的友链</h2><hr>
-<p> MagicJson . 友链<br> 博客名称：MagicJson</p>
-<p> 博客网址：<a href="http://magicjson.cc">http://magicjson.cc</a></p>
-<p> 博客头像：<a href="https://s2.ax1x.com/2020/02/23/3l7pY8.png" target="_blank" rel="noopener">https://s2.ax1x.com/2020/02/23/3l7pY8.png</a></p>
-<p> 博客介绍：一个无人问津的技术小破站</p>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%BF%90%E7%BB%B4%E6%8A%80%E6%9C%AF/" class="post-category">
+                                运维技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-04-08
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    4 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <hr>
+<blockquote>
+<p>→生产无小事，开发请仔细。备份有必要，发版须谨慎</p>
+</blockquote>
+<hr>
+<h2 id="一、文档背景"><a href="#一、文档背景" class="headerlink" title="一、文档背景 "></a>一、<strong>文档背景</strong> <br></h2><p>   <strong>由于画像出现了几次生产问题，经排查都是一些可以避免的细节性错误，为防止下次出现类似的问题，故编写此文档，将问题落地总结。</strong></p>
+<hr>
+<h2 id="二、问题盘点"><a href="#二、问题盘点" class="headerlink" title="二、问题盘点"></a>二、问题盘点</h2><p><strong>1. 已经出现且经常忽略性的问题</strong></p>
+<ul>
+<li><p><strong>营销反馈模块：</strong></p>
+<ul>
+<li><strong><code>编辑页面中营销渠道与营销方式展示时与填写时的数据不一致</code></strong><ul>
+<li><strong>问题剖析：编辑页面代码营销方式字典值写错，js代码中作if判断时两个字典值写反</strong></li>
+</ul>
+</li>
+<li><strong><code>下载按钮权限分配：总行/分行均可可下载（ps:只有总行可以下载）</code></strong><ul>
+<li><strong>问题剖析：配置下载按钮标签时未对支行（val_）belong_org/crt_org进行判断</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>客户画像模块：</strong></p>
+<ul>
+<li><strong><code>总行/支行挖一下无数据展示</code></strong></li>
+<li><strong><code>总行/支行客户结构分布无数据展示</code></strong></li>
+<li><strong><code>总行/支行360画像视图无数据展示</code></strong></li>
+</ul>
+<p><strong>问题剖析：</strong></p>
+<ul>
+<li><strong>总行&amp;支行同时无数据展示&gt;不存在该行数据或数据入库时未按照之前的规则进行录入</strong></li>
+<li><strong>总行有数据&amp;支行无数据&gt;画像系统从es获取数据时查询条件默认为归属机构val_belong_org，如果该行支行走建档机构则需要在es.propertie文件Bank_code属性将该总行行号写入，写入后系统再次查询支行时，读取该行数据会自动将条件切换为val_crt_org进行数据获取</strong></li>
+</ul>
+</li>
+<li><p><strong>数说专题：</strong></p>
+<ul>
+<li><strong><code>日期搜索筛选框功能失效</code></strong><ul>
+<li><strong>问题剖析：前端日期搜索框搜索条件的值未真正获取并传给后台</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>智能运营：（暂无）</strong></p>
+</li>
+<li><p><strong>飞鸽传书：（暂无）</strong></p>
+</li>
+</ul>
+<p><strong>2. 可能出现且绝对不允许出现的问题 <code>▲{特别注意}▲</code></strong></p>
+<ul>
+<li><strong><code>权限分配不当：该问题会导致数据泄露事件（!!!）</code></strong></li>
+<li><strong><code>数据进行改动但未备份：该问题会导致数据丢失事件（!!!）</code></strong></li>
+</ul>
+<p><strong>3. 系统不稳定500问题 <code>▲{特别注意}▲</code></strong></p>
+<ul>
+<li><p><strong><code>系统运行模式：配置运行模式为true（!!!）</code></strong><br><img src="/medias/loading.gif" data-original="https://www.showdoc.cc/server/api/common/visitfile/sign/150fd8dca558dfc41df097def0844930?showdoc=.jpg" alt="生产模式" title="生产模式"></p>
+</li>
+<li><p><strong><code>发版时问题：发版升级或者打补丁时注意不要有遗漏（!!!）</code></strong></p>
+<p><strong><code>概要说明：</code></strong><br><strong><code>1. 未修改前，发版升级缺少静态资源可能会导致freemarker引擎因渲染问题报错致使后台异常，是开发测试时走的苛刻模式，修改运行模式后，某些静态资源无法加载譬如此次map.png缺少出错的问题就可以避免，此模式可以忽略无法加载的静态资源，只渲染没有问题的</code></strong><br><img src="/medias/loading.gif" data-original="https://www.showdoc.cc/server/api/common/visitfile/sign/8850cb4d1fab2481c17009f5f013902f?showdoc=.jpg" alt="freemarker苛刻模式下渲染错误" title="freemarker苛刻模式下渲染错误"><br><strong><code>2. 修改模式前与后二者的代码机制不同，是两套实现，但两者都会走缓存</code></strong><br><strong><code>3. 需要万分注意的是：出现该类问题时一定要比对上一版本，找出日志打印出缺失的资源。填补对应资源如不补充，则使用该项资源时 无法渲染即页面不显示该资源404</code></strong></p>
+</li>
+</ul>
+<hr>
+<h2 id="三、开发-amp-运维事项"><a href="#三、开发-amp-运维事项" class="headerlink" title="三、开发&amp;运维事项"></a>三、开发&amp;运维事项</h2><ul>
+<li><p><strong>开发注意事项</strong></p>
+<ul>
+<li><strong>数据层代码：</strong><ul>
+<li><strong>SQL逻辑一定严谨，符合业务场景，且少用高级函数，处理多表且多对多关系时尽量处理成简单多表关联，其复杂逻辑交给后台Java代码处理，这样是是为数据库减负提升查询效率</strong></li>
+</ul>
+</li>
+<li><strong>Java后端层代码：</strong><ul>
+<li><strong>有注释|见名知意|风格统一，类同代码要抽出到父类或者作为工具类代码，是静态对象或静态属性的尽量不以对象形式创建或者获取，节省堆栈空间且减少GC回收</strong></li>
+</ul>
+</li>
+<li><strong>前端代码：</strong><ul>
+<li><strong>每个功能区域隔开，不同功能加注释以分割线分割，尽量复用代码，var定义的变量可能出现变量泄露现象，为此可以参考es6语法</strong></li>
+</ul>
+</li>
+<li><strong>通用：</strong><ul>
+<li><strong>代码整洁简易&amp;层次分明</strong></li>
+</ul>
+</li>
+<li><strong>特别提醒：</strong><ul>
+<li><strong>要多次测试{开发者测试、需求提出者测试}，其中开发者要多次反复测试，测试时要尽可能多的考虑可能出现的问题</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>运维注意事项</strong></p>
+<ul>
+<li><strong>权限分配：</strong><ul>
+<li><strong>权限规则：角色控制菜单，如你想让新开发的页面被指定人可见，则可以新建角色或者复用已有角色，将该菜单绑定给该角色，再把该角色指定给所需用户</strong></li>
+</ul>
+</li>
+<li><strong>新模块添加：</strong><ul>
+<li><strong>管理员登录后在系统管理模块找到XXX（具体菜单名回想不起来了）该步骤可由学思补充，我作为归档填入该文档中</strong></li>
+</ul>
+</li>
+<li><strong>批量导入机构/用户/角色：</strong><ul>
+<li><strong>该功能生，表现为三个接口，代码中有对应功能区的分割线且有部分注释，生产环境该接口处于封印状态，开发环境张我已经将其三合一，需要的可以联系我</strong></li>
+</ul>
+</li>
+<li><strong>批量导入客群画像与数据字典：</strong><ul>
+<li><strong>该功能有对应的生成SQL的脚本，可联系田学思</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -367,10 +631,225 @@
           });
       </script>
             </div>
-        </div>
-        <div class="card">
+            <hr/>
+
             
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/libs/gitalk/gitalk.css">
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://magicjson.cc" rel="external nofollow noreferrer">MagicJson</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://magicjson.cc/posts/f82e.html">http://magicjson.cc/posts/f82e.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="http://magicjson.cc" target="_blank">MagicJson</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%BF%90%E7%BB%B4%E6%8A%80%E6%9C%AF/">
+                                    <span class="chip bg-color">运维技术</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%94%BB%E5%83%8F%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">画像系统</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">请我一杯咖啡可好～(￣▽￣)～</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/libs/gitalk/gitalk.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
@@ -389,22 +868,22 @@
         repo: 'blog-comments',
         owner: 'MagicJson',
         admin: "MagicJson",
-        id: '2020-02-23T13-19-56',
+        id: '2020-04-08T14-15-02',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
     gitalk.render('gitalk-container');
 </script>
-            
+    
 
-            
+    
 
-            
+    
 
-            
+    
 
-            
-            <style>
+    
+        <style>
     .valine-card {
         margin: 1.5rem auto;
     }
@@ -666,10 +1145,270 @@
     });
 </script>
 
-            
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/posts/f82e.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="画像系统常见问题及开发注意事项">
+                        
+                        <span class="card-title">画像系统常见问题及开发注意事项</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            画像系统常见问题及开发注意事项
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BF%90%E7%BB%B4%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    运维技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%BF%90%E7%BB%B4%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">运维技术</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%94%BB%E5%83%8F%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">画像系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/3eeb.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        
+                        <span class="card-title">Hello World</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            MagicJson
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: MagicJson&#39;s Blog<br />'
+            + '文章作者: MagicJson<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
         </div>
     </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/MagicJson/MagicJson.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
 </main>
+
 
 
     <footer class="page-footer bg-color">
