@@ -2,16 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://magicjson.cc/posts/f82e.html</loc>
+    <loc>http://magicjson.cc/contact/index.html</loc>
     
-    <lastmod>2020-04-09T09:23:57.539Z</lastmod>
+    <lastmod>2020-04-13T03:17:29.380Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://magicjson.cc/contact/index.html</loc>
+    <loc>http://magicjson.cc/posts/3eeb.html</loc>
     
-    <lastmod>2020-02-23T05:34:10.065Z</lastmod>
+    <lastmod>2020-04-13T01:46:21.105Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://magicjson.cc/archives/index.html</loc>
+    
+    <lastmod>2020-04-10T06:14:18.367Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://magicjson.cc/categories/index.html</loc>
+    
+    <lastmod>2020-04-10T05:53:40.353Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://magicjson.cc/about/index.html</loc>
+    
+    <lastmod>2020-04-10T05:53:16.136Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://magicjson.cc/tags/index.html</loc>
+    
+    <lastmod>2020-04-10T05:45:48.258Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://magicjson.cc/friends/index.html</loc>
+    
+    <lastmod>2020-04-10T03:27:09.973Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://magicjson.cc/posts/f82e.html</loc>
+    
+    <lastmod>2020-04-10T01:20:57.011Z</lastmod>
     
   </url>
   
@@ -19,41 +61,6 @@
     <loc>http://magicjson.cc/404.html</loc>
     
     <lastmod>2020-02-23T05:16:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://magicjson.cc/posts/3eeb.html</loc>
-    
-    <lastmod>2020-02-22T09:11:14.199Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://magicjson.cc/friends/index.html</loc>
-    
-    <lastmod>2020-02-22T03:14:41.755Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://magicjson.cc/about/index.html</loc>
-    
-    <lastmod>2020-02-22T03:13:49.389Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://magicjson.cc/tags/index.html</loc>
-    
-    <lastmod>2020-02-22T03:12:51.355Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://magicjson.cc/categories/index.html</loc>
-    
-    <lastmod>2020-02-22T03:11:17.777Z</lastmod>
     
   </url>
   
