@@ -188,7 +188,7 @@
                 <div class="share-title">
                 </div>
             </div>
-            <audio id="music" src="dream-back-img/h5.mp3" loop>
+            <audio id="music" src="dream-back-img/h5.mp3"  loop>
             </audio>
         </div>
         <script src="dream-back-js/jquery.js"></script>
@@ -320,7 +320,6 @@
                         if(lengths>=10){
                             $(".grades-n").css("background-image",'url("dream-back-img/q11/f'+yes+'.png")');
                             $(".music-icon").addClass("hide");
-
                             if(yes>0 && yes<=5){
                                 $(".text-main11").css("background-image",'url("dream-back-img/q11/bg1.jpg")');
                                 $(".study-text").html('<img src="dream-back-img/q11/text1.png">');
@@ -331,12 +330,15 @@
                             }else if(yes==9){
                                 $(".text-main11").css("background-image",'url("dream-back-img/q11/bg3.jpg")');
                                 $(".study-text").html('<img src="dream-back-img/q11/text3.png">');
+                            }else {
+                                $(".text-main11").css("background-image",'url("dream-back-img/q11/bg3.jpg")');
+                                $(".study-text").html('<img src="dream-back-img/q11/text3.png">');
                             }
                             $("title").text("我的小学语文成绩只有"+yes+"0"+"分，老师让朋友圈签字....");
+
                             setTimeout(function(){
                                 document.getElementById('music').pause();return false;
                             },2000);
-                           dp_submitScore(yes);
                         }
                     }
                 });
