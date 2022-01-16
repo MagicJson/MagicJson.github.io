@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <script type="text/javascript" src="https://cdn.bootcss.com/typed.js/2.0.5/typed.js"></script>
+    <style>
+        body {
+            background: black;
+            overflow: hidden;
+            font: 5vw/100vh "Finger Paint";
+            text-align: center;
+            color: transparent;
+            backface-visibility: hidden;
+        }
+        span {
+            display: inline-block;
+            text-shadow: 0 0 0 whitesmoke;
+        }
+
+        span:nth-child(even){
+            animation-name: smoky-mirror;
+        }
+
+        @keyframes smoky {
+            60% {
+                text-shadow: 0 0 40px whitesmoke;
+            }
+            to {
+                transform:
+                        translate3d(15rem,-8rem,0)
+                        rotate(-40deg)
+                        skewX(70deg)
+                        scale(1.5);
+                text-shadow: 0 0 20px whitesmoke;
+                opacity: 0;
+            }
+        }
+
+        @keyframes smoky-mirror {
+            60% {
+                text-shadow: 0 0 40px whitesmoke; }
+            to {
+                transform:
+                        translate3d(18rem,-8rem,0)
+                        rotate(-40deg)
+                        skewX(-70deg)
+                        scale(2);
+                text-shadow: 0 0 20px whitesmoke;
+                opacity: 0;
+            }
+        }
+
+        @for $item from 1 through 21 {
+            span:nth-of-type(#{$item}){
+                animation-delay: #{(3 + ($item/10))}s;
+            }
+        }
+
+        audio{
+            position:absolute;
+            top: 75%;
+            right: 38%;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div id="typed-jiu">
+    <span>小九亲启:</span>
+    <span>小九，当你看到这段话时</span>
+    <span>想必那时候，就是叔叔暂时消失</span>
+    <span>暂时斩断师徒牵绊的时候</span>
+    <span>或许，你会觉得，叔叔太矫情了</span>
+    <span>但叔叔就是这样的人，</span>
+    <span>不写，叔叔会念头不通达。</span>
+    <span>先说一声，对不起啦！</span>
+    <span>小九，叔叔是一个不称职的师傅！</span>
+    <span>就让这个不称职的师傅，啥也没教的师傅</span>
+    <span>消失前教你一个道理把</span>
+    <span>或许，现在你还可能不懂</span>
+    <span>但过几年你一定会懂，是真懂哦</span>
+    <span>“免费的一定是世界上最贵的”</span>
+    <span>这句话希望你能记住，当然也可以无视他</span>
+    <span>世界上没有无缘无故的好</span>
+    <span>哪怕是兄弟也是双方了解且肝胆相照过</span>
+    <span>无缘无故的好一定是有其目的。</span>
+    <span>拿师傅说例子把，师傅一开始</span>
+    <span>是觉得小九好可怜处于同情</span>
+    <span>还有就是小团团的魔咒才出手帮了一把</span>
+    <span>叔叔说过，叔叔给不少人刷过礼物</span>
+    <span>其实大多时候就是出于同情，</span>
+    <span>感觉挺不错就是没人气，就刷了</span>
+    <span>还有就是叔叔是真的喜欢你那种声音哦。</span>
+    <span>之后其实叔叔想着帮一次就行，</span>
+    <span>做个路过的也挺好</span>
+    <span>后来上麦，发现，小九真的很可爱</span>
+    <span>大概是许久没找到这种感觉了，</span>
+    <span>想着再来一次把</span>
+    <span>在之后叔叔是感觉洽谈甚欢，</span>
+    <span>彻底打开了叔叔的话匣子，</span>
+    <span>因为很多不能在现实生活讲的全部</span>
+    <span>都倾吐到了网络的虚拟世界中。</span>
+    <span>再之后，突然被小九叫了师傅，</span>
+    <span>可能对于别人这是玩笑，</span>
+    <span>但对于叔叔来说大概就是责任吧</span>
+    <span>叔叔可能太过感性，这声师傅，</span>
+    <span>叔叔觉得，要好好尽一份师傅的责任。</span>
+    <span>但很可惜，叔叔明显不是师傅的料</span>
+    <span>刚刚当成师傅没多久，</span>
+    <span>没指导好且在你需要的时候叔叔也没在</span>
+    <span>当时知道直播间被封，你求救还哭的时候，</span>
+    <span>叔叔当时觉得，自己好失败，好失败!</span>
+    <span>当得知你喜欢甜的且没吃东西的时候，</span>
+    <span>叔叔就点了那个外卖</span>
+    <span>其实叔叔也是第一次帮别人点，</span>
+    <span>点的时候还再三确认地址联系是否写错</span>
+    <span>想想也是搞笑，切换了三次地址</span>
+    <span>才刷出一个那时间还卖甜品的</span>
+    <span>说实话，那时间营业的还真是少啊</span>
+    <span>之后看到你开心起来，</span>
+    <span>叔叔心里大石头也落下来了</span>
+    <span>最让叔叔动容的是，</span>
+    <span>小九跑很远为叔叔祈福，</span>
+    <span>这算是解锁了叔叔新的体验</span>
+    <span>讲真，当叔叔看到祈福照片时，</span>
+    <span>特喵还湿润了眼角</span>
+    <span>不争气啊自己，二十五六</span>
+    <span>被十几岁小姑娘感动了一把</span>
+    <span>真的挺谢谢小九的，</span>
+    <span>被别人感动这还是第一次，通常</span>
+    <span>叔叔都是感动别人的那个。</span>
+    <span>再之后一直扮演着不称职师傅加</span>
+    <span>不称职叔叔的角色，</span>
+    <span>叔叔是个信守承诺的人，</span>
+    <span>现在心里多了一件事就是</span>
+    <span>不能辜负小九的期待，</span>
+    <span>这也是叔叔这么不厌其烦</span>
+    <span>写这么多又臭又长的留言的原因，</span>
+    <span>不想没有理由的暂时消失，</span>
+    <span>不想让小九难过，因为小九也说了，</span>
+    <span>有些东西离开的时候再说，</span>
+    <span> 不想现在就难受，所以叔叔在</span>
+    <span>2022年1月16下午14点08分写出了这些话</span>
+    <span>叔叔毕业差不多四年了把，课本早忘光了，</span>
+    <span>这次考研也没有绝对把握，</span>
+    <span>但是有小九祈福加持，</span>
+    <span>叔叔更得努力让自己自律起来，</span>
+    <span>所以要暂时性的斩断羁绊，叔叔其实一直在</span>
+    <span>叔叔是一个单线程或者说一根筋得人，</span>
+    <span>学习的时候或许可能会忘掉一些事，</span>
+    <span>所以提前打好招呼这样</span>
+    <span>就不会让小九很难受，</span>
+    <span>记住，叔叔一直在，作为师傅的叔叔，</span>
+    <span>等小九成长了，才会消失的，</span>
+    <span>虽然不知道是多久，</span>
+    <span>但至少目前是一直在的！</span>
+    <span>总而言之，叔叔的例子不仅交待了</span>
+    <span>与小九结识的心理历程还交代了</span>
+    <span>叔叔对小九好</span>
+    <span>是因为责任还有一份小小的羁绊。</span>
+    <span>如果没有这些</span>
+    <span>叔叔不会坚持到现在，所以，</span>
+    <span>以后多注意点</span>
+    <span>往往好意的背后都有其目的所在无论好坏</span>
+    <span>眼睛要亮一些，毕竟像叔叔这样</span>
+    <span>特殊的存在【大龄中二逗逼】挺少的</span>
+    <span>能看到这里，真是辛苦小九了。</span>
+    <span>最后，祝小九直播一路长虹，</span>
+    <span>也祝小九在大学玩的开心，做想做的事</span>
+    <span>每一件都心想事成！</span>
+    <span>--- 小九·假叔叔。</span>
+    <span><a href="http://magicjson.cc/posts/happy-jiu.html">小九要点这里哦！</a></span>
+</div>
+<span id="typed" ></span>
+    <audio controls="controls" src="jiu-media/yourname.flac" loop="loop"></audio>
+
+</body>
+<script>
+    new Typed('#typed',{
+        stringsElement: '#typed-jiu',
+        typeSpeed: 100,
+        startDelay: 100,
+        fadeOut:true,
+        fadeOut:true,
+        loop: false,
+        loopCount: Infinity,
+        autoInsertCss:"true",
+        backSpeed:"50",
+        cursorChar: '♥'
+    });
+    const filter = document.querySelector("#turbulence");
+    let frames = 1;
+    let rad = Math.PI / 180;
+    let bfx, bfy;
+
+    function freqAnimation() {
+        frames += .2
+
+        bfx = 0.03;
+        bfy = 0.03;
+
+        bfx += 0.005 * Math.cos(frames * rad);
+        bfy += 0.005 * Math.sin(frames * rad);
+
+        bf = bfx.toString() + " " + bfy.toString();
+
+        window.requestAnimationFrame(freqAnimation);
+    }
+
+    window.requestAnimationFrame(freqAnimation);
+
+</script>
+
+
+</html>
